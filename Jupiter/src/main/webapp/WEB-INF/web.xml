@@ -29,4 +29,14 @@
     <servlet-name>RecommendItem</servlet-name>
     <url-pattern>/recommendation</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ItemHistory</display-name>
+    <servlet-name>ItemHistory</servlet-name>
+    <servlet-class>rpc.ItemHistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ItemHistory</servlet-name>
+    <url-pattern>/history</url-pattern>
+  </servlet-mapping>
 </web-app>

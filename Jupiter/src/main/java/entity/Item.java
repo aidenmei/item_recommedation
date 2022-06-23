@@ -68,8 +68,7 @@ public class Item {
 		private Set<String> categories;
 		private String imageUrl;
 		private String url;
-		private double distance;
-		
+		private double distance;	
 		
 		public Item build() {
 			return new Item(this);
