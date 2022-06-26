@@ -4385,3 +4385,13 @@ java.lang.Error: SWT Resource was not properly disposed
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.lsp4e 1 0 2022-06-25 22:53:54.846
+!MESSAGE [Info]	ESLint server running in node v16.13.0
+
+!ENTRY org.eclipse.lsp4e 1 0 2022-06-25 22:53:55.161
+!MESSAGE [Info]	[lspserver] Using Typescript version (user-setting) 4.5.5 from path "/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.wildwebdeveloper_0.5.20.202202041634/node_modules/typescript/lib/tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 4 0 2022-06-25 22:53:56.268
+!MESSAGE [Error]	[tsserver] env: node: No such file or directory
+
