@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="description" content="Item Recommendation">
   <meta name="author" content="Your Name">
-  <title>Item Recommendation Final</title>
+  <title>Item Recommendation</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/main.css">
@@ -21,7 +21,7 @@
   </header>
   
   <div class="container">
-    <header>
+   <header>
       <p>
         <span>Item</span>
         <br /> Recommendation
@@ -64,10 +64,10 @@
           </div>
         </li>
       </ul>
-    </section>
+    </section>  
   </div>
   
-  <footer>
+ <footer>
     <p class="title">What We Do</p>
     <p>"Help you find the best place around."</p>
     <ul>
@@ -77,16 +77,17 @@
       </li>
       <li>
         <p><i class="fa fa-envelope-o fa-2x"></i></p>
-        <p>info@welcom.com</p>
+        <p>info@welcome.com</p>
       </li>
       <li>
         <p><i class="fa fa-phone fa-2x"></i></p>
-        <p>+1 800 123 456</p>
+        <p>+1 888 123 456</p>
       </li>
     </ul>
-  </footer>
+  </footer> 
   
   <script src="https://rawgit.com/emn178/js-md5/master/build/md5.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>
+
