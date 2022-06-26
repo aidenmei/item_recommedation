@@ -1,27 +1,30 @@
 package rpc;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
+import db.DBConnection;
+import db.DBConnectionFactory;
+import entity.Item;
+import external.TicketMasterAPI;
+
 /**
- * Servlet implementation class RecommendItem
+ * Servlet implementation class SearchItem
  */
-public class RecommendItem extends HttpServlet {
+public class SearchItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecommendItem() {
+    public SearchItem() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,24 +32,31 @@ public class RecommendItem extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		JSONArray array = new JSONArray();
 		try {
-			array.put(new JSONObject()
-					.put("name", "abcd")
-					.put("address", "New York City")
-					.put("time", "09/06/2022"));
-			array.put(new JSONObject()
-					.put("name", "1234")
-					.put("address", "San Jose")
-					.put("time", "08/03/2022"));
-		} catch (JSONException e) {
+			double lat = Double.parseDouble(request.getParameter("lat"));
+			double lon = Double.parseDouble(request.getParameter("lon"));
+			String keyword = request.getParameter("term");
+			
+//			TicketMasterAPI tmAPI = new TicketMasterAPI();
+//			List<Item> items = tmAPI.search(lat, lon, keyword);
+			
+			DBConnection connection = DBConnectionFactory.getConnection();
+			List<Item> items = connection.searchItems(lat, lon, keyword);
+			connection.close();
+			
+			for (Item item : items) {
+				JSONObject obj = item.toJSONObject();
+				array.put(obj);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		RpcHelper.writeJsonArray(response, array);
+
+
+
 	}
 
 	/**

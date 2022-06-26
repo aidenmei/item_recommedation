@@ -24,4 +24,8 @@ public class DBConnectionFactory {
 		return getConnection(DEFAULT_DB);
 	}
 
+	public static DBConnection getDBConnection() {
+		return getConnection(DEFAULT_DB);
+	}
+
 }

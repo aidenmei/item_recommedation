@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.json.JSONArray"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="db.DBConnectionFactory"/>
     <fullyQualifiedTypeName name="db.DBConnection"/>
     <fullyQualifiedTypeName name="org.json.JSONObject"/>
@@ -20,6 +19,8 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="entity.Item.ItemBuilder"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="entity.Item"/>
     <fullyQualifiedTypeName name="org.json.JSONException"/>
+    <fullyQualifiedTypeName name="algorithm.GeoRecommendation"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="entity.Item"/>
 </qualifiedTypeNameHistroy>

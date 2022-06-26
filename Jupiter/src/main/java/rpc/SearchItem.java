@@ -5,7 +5,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,28 +36,34 @@ public class SearchItem extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		JSONArray array = new JSONArray();
+		String userId = request.getParameter("user_id");
+		double lat = Double.parseDouble(request.getParameter("lat"));
+		double lon = Double.parseDouble(request.getParameter("lon"));
+		// Term can be empty or null.
+		String term = request.getParameter("term");
+
+		DBConnection connection = DBConnectionFactory.getDBConnection();
+		List<Item> items = connection.searchItems(lat, lon, term);
+
+		Set<String> favorite = connection.getFavoriteItemIds(userId);
+		connection.close();
+
+		List<JSONObject> list = new ArrayList<>();
 		try {
-			double lat = Double.parseDouble(request.getParameter("lat"));
-			double lon = Double.parseDouble(request.getParameter("lon"));
-			String keyword = request.getParameter("term");
-			
-//			TicketMasterAPI tmAPI = new TicketMasterAPI();
-//			List<Item> items = tmAPI.search(lat, lon, keyword);
-			
-			DBConnection connection = DBConnectionFactory.getConnection();
-			List<Item> items = connection.searchItems(lat, lon, keyword);
-			connection.close();
-			
 			for (Item item : items) {
+				// Add a thin version of restaurant object
 				JSONObject obj = item.toJSONObject();
-				array.put(obj);
+				// Check if this is a favorite one.
+				// This field is required by frontend to correctly display favorite items.
+				obj.put("favorite", favorite.contains(item.getItemId()));
+
+				list.add(obj);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		JSONArray array = new JSONArray(list);
 		RpcHelper.writeJsonArray(response, array);
-
 
 
 	}
