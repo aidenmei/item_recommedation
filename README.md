@@ -1,12 +1,12 @@
 # TL;DR
-This is a event search and recommmendation engine written in Java, implementing keyword extraction and content-based recommendation. It implements RESTful APIs using Java servlets, retrieves job descriptions using Github API and stores data in MySQL. Users can: 
+This is a event search and recommmendation engine written in Java, implementing keyword extraction and content-based recommendation. It implements RESTful APIs using Java servlets, retrieves event descriptions using TicketMaster API and stores data in MySQL. Users can: 
 - Search nearby available event
 - Save favorite event to account
 - Get recommendated event based on extracted keywords from favorites
                                               
 
 ## Behind the Scenes 
-Java servlets are Java classes to handle RPC on the server side.Java servlets are created in this app: ```searchItem```,```recommendItem```,```register```,```favoriteItem```.
+Java servlets are Java classes to handle RPC on the server side.Java servlets are created in this app: ```searchItem```,```recommendItem```,```ItemHistory```,```favoriteItem```.
 
 ```searchItem```communicates with the TicketMaster API to get available events.
 ```recommendItem```does both to relay keywords from database to the search. 
