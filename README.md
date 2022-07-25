@@ -3,7 +3,11 @@ This is a event search and recommmendation engine written in Java, implementing 
 - Search nearby available event
 - Save favorite event to account
 - Get recommendated event based on extracted keywords from favorites
-                                              
+ 
+ ### Demo
+ 
+ - Link: http://ec2-54-91-165-108.compute-1.amazonaws.com:8080/Jupiter/#
+ 
 
 ## Behind the Scenes 
 Java servlets are Java classes to handle RPC on the server side.Java servlets are created in this app: ```searchItem```,```recommendItem```,```ItemHistory```,```favoriteItem```.
