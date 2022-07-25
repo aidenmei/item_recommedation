@@ -16,5 +16,6 @@ A recommendation system seeks to predict the "rating" a user would give to an it
 Session is used to store a series of interations of the user currently visiting the webapp. When a user logs in, a session ID is assigned to the user. Users need to provide session ID to access resources that require authentication. ```HttpSession``` is an interface provided by the servlet API. HttpSession allows us to set attributes in key-value pairs that can be retrieved in future requests. The session ends when the user logs out or inactive after a predetermined period of time.
 
 ### Dependencies
+- TicketMaster API: https://app.ticketmaster.com/discovery/v2/
 - Apache Tomcat: http://tomcat.apache.org/
 - MySQL Java connector: https://mvnrepository.com/artifact/mysql/mysql-connector-java
